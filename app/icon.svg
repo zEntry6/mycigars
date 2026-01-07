@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background: soft paper tone -->
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#f2ecdf"/>
+  
+  <!-- Journal body -->
+  <rect x="16" y="10" width="36" height="44" rx="2" fill="#2a2a2a"/>
+  
+  <!-- Spine highlight -->
+  <rect x="16" y="10" width="6" height="44" rx="1" fill="#1a1a1a"/>
+  
+  <!-- Page area (inner paper) -->
+  <rect x="24" y="14" width="24" height="36" rx="1" fill="#faf8f3"/>
+  
+  <!-- Subtle page lines -->
+  <line x1="27" y1="22" x2="44" y2="22" stroke="#d4cfc4" stroke-width="1.5"/>
+  <line x1="27" y1="29" x2="44" y2="29" stroke="#d4cfc4" stroke-width="1.5"/>
+  <line x1="27" y1="36" x2="44" y2="36" stroke="#d4cfc4" stroke-width="1.5"/>
+  <line x1="27" y1="43" x2="40" y2="43" stroke="#d4cfc4" stroke-width="1.5"/>
+</svg>
