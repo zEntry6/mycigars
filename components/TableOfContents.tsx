@@ -22,13 +22,11 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
   const [isOpen, setIsOpen] = useState(false)
 
-  // Don't render if fewer than 2 headings
-  if (headings.length < 2) {
-    return null
-  }
-
   // Track active section with IntersectionObserver
   useEffect(() => {
+    // Skip if fewer than 2 headings
+    if (headings.length < 2) return
+
     const headingElements = headings
       .map(({ id }) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[]
@@ -102,6 +100,11 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
       setIsOpen(false)
     }
   }, [])
+
+  // Don't render if fewer than 2 headings
+  if (headings.length < 2) {
+    return null
+  }
 
   return (
     <>
