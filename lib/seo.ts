@@ -5,7 +5,7 @@
  */
 
 // Site configuration from environment
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://mycigarsstillburns.vercel.app'
 export const SITE_NAME = 'My Cigars, Still Burning'
 export const SITE_DESCRIPTION = 'A personal publishing platform for thoughts, essays, and ideas.'
 export const AUTHOR_NAME = 'faysmokecigars'
