@@ -35,7 +35,7 @@ export default function ArticleLayout({
   children,
 }: ArticleLayoutProps) {
   return (
-    <div className="min-h-screen bg-[#e8e4dc] pt-8 md:pt-12">
+    <div className="min-h-screen bg-[#e8e4dc] pt-4 sm:pt-8 md:pt-12">
       {/* The Paper - one continuous sheet */}
       <article className="article-paper">
         {/* Subtle edge shading - left */}
@@ -81,12 +81,12 @@ export default function ArticleLayout({
                 tracking-[0.2em]
                 uppercase
                 text-stone-400
-                mb-4
+                mb-2 sm:mb-4
               "
             >
               {formatDate(date)}
             </time>
-            <h1 className="article-title ink-bleed">
+            <h1 className="text-[clamp(2rem,8.2vw,4.5rem)] leading-[1.02] max-w-[42rem] mx-auto font-serif font-bold text-stone-900 tracking-tight ink-bleed">
               {title}
             </h1>
           </header>

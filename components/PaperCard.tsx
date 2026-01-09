@@ -49,7 +49,7 @@ export default function PaperCard({ post }: PaperCardProps) {
         <div className="paper-fold" aria-hidden="true" />
 
         {/* Content */}
-        <div className="relative z-10 p-8 md:p-10 lg:p-12">
+        <div className="relative z-10 p-5 sm:p-8 md:p-10 lg:p-12">
           {/* Published Date */}
           <time
             dateTime={post.date}
@@ -69,7 +69,8 @@ export default function PaperCard({ post }: PaperCardProps) {
           {/* Title */}
           <h2
             className="
-              text-2xl
+              text-xl
+              sm:text-2xl
               md:text-3xl
               font-serif
               font-bold

@@ -87,13 +87,13 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-lg font-medium text-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex flex-wrap items-center justify-between gap-2">
+          <h1 className="text-base sm:text-lg font-medium text-gray-900">
             My Cigars, Still Burning
           </h1>
           <button
             onClick={handleSignOut}
-            className="text-sm text-gray-500 hover:text-gray-700"
+            className="text-sm text-gray-500 hover:text-gray-700 px-2 py-1 rounded hover:bg-gray-100"
           >
             Sign out
           </button>
@@ -101,39 +101,39 @@ export default function AdminDashboard() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 py-8">
-        <div className="mb-8">
-          <h2 className="text-2xl font-medium text-gray-900 mb-2">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-medium text-gray-900 mb-2">
             Dashboard
           </h2>
-          <p className="text-gray-500">
+          <p className="text-sm sm:text-base text-gray-500">
             Manage your writings.
           </p>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
           <div className="bg-white border border-gray-200 rounded px-4 py-3">
-            <div className="text-2xl font-medium text-gray-900">
+            <div className="text-xl sm:text-2xl font-medium text-gray-900">
               {loadingPosts ? '—' : posts.length}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-xs sm:text-sm text-gray-500">
               Total writings
             </div>
           </div>
           <div className="bg-white border border-gray-200 rounded px-4 py-3">
-            <div className="text-2xl font-medium text-gray-900">
+            <div className="text-xl sm:text-2xl font-medium text-gray-900">
               {loadingPosts ? '—' : publishedCount}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-xs sm:text-sm text-gray-500">
               Published
             </div>
           </div>
           <div className="bg-white border border-gray-200 rounded px-4 py-3">
-            <div className="text-2xl font-medium text-gray-900">
+            <div className="text-xl sm:text-2xl font-medium text-gray-900">
               {loadingPosts ? '—' : draftCount}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-xs sm:text-sm text-gray-500">
               Drafts
             </div>
           </div>

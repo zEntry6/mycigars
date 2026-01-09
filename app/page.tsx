@@ -57,17 +57,17 @@ export default async function HomePage() {
       
       <main className="min-h-screen bg-background">
         {/* Header */}
-        <header className="pt-16 pb-12 px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-ink">
+        <header className="pt-10 sm:pt-16 pb-8 sm:pb-12 px-4 sm:px-6 text-center">
+          <h1 className="text-[clamp(2.1rem,8vw,4.5rem)] leading-[1.05] sm:leading-[0.95] font-serif font-bold text-ink">
             My Cigars, Still Burning
           </h1>
-          <p className="mt-4 text-lg text-ink-muted font-serif max-w-lg mx-auto">
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-ink-muted font-serif max-w-lg mx-auto px-2">
             Published by @faysmokecigars
           </p>
         </header>
 
         {/* Writings Grid */}
-        <section className="max-w-4xl mx-auto px-6 pb-20">
+        <section className="w-full max-w-[44rem] mx-auto px-4 sm:px-6 pb-12 sm:pb-20">
           {formattedPosts.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-ink-muted font-serif text-lg">

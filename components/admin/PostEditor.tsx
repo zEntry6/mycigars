@@ -606,46 +606,80 @@ export default function PostEditor({
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link href="/admin/posts" className="text-gray-500 hover:text-gray-700">
-              ← Back
-            </Link>
-            <h1 className="text-lg font-medium text-gray-900">
-              {isNewPost ? 'New Writing' : 'Edit Writing'}
-            </h1>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+          {/* Row 1: Back + Title */}
+          <div className="flex items-center justify-between gap-2 mb-2 sm:mb-0">
+            <div className="flex items-center gap-2 sm:gap-4 min-w-0">
+              <Link href="/admin/posts" className="text-gray-500 hover:text-gray-700 text-sm flex-shrink-0">
+                ← <span className="hidden sm:inline">Back</span>
+              </Link>
+              <h1 className="text-base sm:text-lg font-medium text-gray-900 truncate">
+                {isNewPost ? 'New Writing' : 'Edit Writing'}
+              </h1>
+            </div>
+            {/* Desktop: All actions in one row */}
+            <div className="hidden sm:flex items-center gap-3">
+              {renderStatusIndicator()}
+              {!isNewPost && currentPostIdRef.current && (
+                <button
+                  onClick={() => setShowVersionHistory(true)}
+                  className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  History
+                </button>
+              )}
+              {!isNewPost && (
+                <button
+                  onClick={handleDelete}
+                  className="text-sm text-red-600 hover:text-red-800"
+                >
+                  Delete
+                </button>
+              )}
+            </div>
           </div>
-          <div className="flex items-center gap-3">
-            {renderStatusIndicator()}
-            {!isNewPost && currentPostIdRef.current && (
-              <button
-                onClick={() => setShowVersionHistory(true)}
-                className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                History
-              </button>
-            )}
-            {!isNewPost && (
-              <button
-                onClick={handleDelete}
-                className="text-sm text-red-600 hover:text-red-800"
-              >
-                Delete
-              </button>
-            )}
+          {/* Row 2 (Mobile only): Status + Actions */}
+          <div className="flex sm:hidden items-center justify-between gap-2">
+            <div className="flex-shrink-0">
+              {renderStatusIndicator()}
+            </div>
+            <div className="flex items-center gap-2">
+              {!isNewPost && currentPostIdRef.current && (
+                <button
+                  onClick={() => setShowVersionHistory(true)}
+                  className="p-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded"
+                  title="History"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </button>
+              )}
+              {!isNewPost && (
+                <button
+                  onClick={handleDelete}
+                  className="p-1.5 text-red-500 hover:text-red-700 hover:bg-red-50 rounded"
+                  title="Delete"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 py-8">
-        <div className="space-y-6">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <div className="space-y-5 sm:space-y-6">
           {/* Error display for auth/critical errors */}
           {saveState.status === 'error' && (
-            <div className="bg-red-50 text-red-600 px-4 py-3 rounded text-sm">
+            <div className="bg-red-50 text-red-600 px-3 sm:px-4 py-2.5 sm:py-3 rounded text-sm">
               {saveState.message}
             </div>
           )}
